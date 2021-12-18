@@ -11,13 +11,12 @@ pipeline{
         stage("Maven Build"){
             steps{
                 sh 'mvn clean package'
-                sh 'mv target/myweb*.war target/myweb.war'
-            }
+             }
         }
 
         stage("Deploy to Tomcat Development"){
             steps{
-                tomcatdeploy("172.31.46.35","tomcat-dev","myweb")
+                tomcatdeploy("172.31.46.35","tomcat-dev","myweb","0.0.4")
                }
             }
         }
